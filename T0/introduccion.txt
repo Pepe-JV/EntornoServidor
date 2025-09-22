@@ -1,0 +1,7 @@
+Concepto de interfaces web y diseño en aplicaciones; interfaces web y interfaz de usuario web ¿que es una interfaz? y todo los tipos que tienen
+xml se usa porque es mas seguro que html porque se contracta y se tiene que verficiar, aunque es muy antiguo se usa para seguridad, gobierno etc
+el dominion es la mascara de la ip, cuando buscas ejemplo.com, el buscador consulta al DNS que sea el puerto donde está alojada esa web
+ip local 198.168... a partir de 168 cambia
+el servidor de entrada de una web suele ser index.php 
+localhost = 127.0.0.1 = 0.0.0.0
+Una API proporciona funciones y metodos predefindos para simplificar tareas comunes; ej: la de google maps deja integrar mapas interactivos en la web.
