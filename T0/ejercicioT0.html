@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio T0</title>
+</head>
+<body>
+    <header>
+        <div class="banner"></div>
+    </header>
+    <main>
+        <div class="contenedor"></div>
+        <div class="btn-contenedor">
+            <button>hombre</button>
+            <button>mujer</button>
+        </div>
+    </main>
+</body>
+</html>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: rgb(236, 37, 37);
+    }
+    .banner {
+        background-color: rgb(7, 188, 248);
+        height: 30vh;
+        width: 100%;
+    }
+    main {
+        
+        display: grid;
+        grid-template-columns: 1fr 30% 1fr;
+        grid-template-rows: 1fr auto;
+        gap: 20px;
+        height: 70vh;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .contenedor {
+        background-color: rgb(7, 248, 112);
+        height: 30vh;
+        grid-column: 2;
+        grid-row: 1;
+        align-self: center;
+    }
+    .btn-contenedor {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        padding: 0 50px;
+    }
+    .btn-contenedor button {
+        padding: 15px;
+    }
+
+</style>
