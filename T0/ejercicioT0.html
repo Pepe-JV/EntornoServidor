@@ -7,13 +7,15 @@
 </head>
 <body>
     <header>
-        <div class="banner"></div>
+        <div class="banner">
+            <h1>Ejercicio t0 - Pepe</h1>
+        </div>
     </header>
     <main>
         <div class="contenedor"></div>
-        <div class="btn-contenedor">
-            <button>hombre</button>
-            <button>mujer</button>
+        <div class="boton-contenedor">
+            <button>Aprobado</button>
+            <button>Suspenso</button>
         </div>
     </main>
 </body>
@@ -29,15 +31,24 @@
         background-color: rgb(7, 188, 248);
         height: 30vh;
         width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .banner h1 {
+        margin: 0;
+        color: white;
+        font-size: 2.5rem;
+        font-weight: bold;
     }
     main {
-        
         display: grid;
         grid-template-columns: 1fr 30% 1fr;
         grid-template-rows: 1fr auto;
         gap: 20px;
         height: 70vh;
-        padding: 20px;
+        padding: 2%;
         box-sizing: border-box;
     }
     .contenedor {
@@ -47,16 +58,16 @@
         grid-row: 1;
         align-self: center;
     }
-    .btn-contenedor {
+    .boton-contenedor {
         grid-column: 1 / -1;
         grid-row: 2;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 20px;
-        padding: 0 50px;
+        padding: 0 5%;
     }
-    .btn-contenedor button {
-        padding: 15px;
+    .boton-contenedor button {
+        padding: 2%;
     }
 
 </style>
