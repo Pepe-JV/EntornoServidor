@@ -1,4 +1,41 @@
-/* Estilos personalizados adicionales a Tailwind CSS */
+:root {
+  /* Colores principales */
+  --color-primary: #2c3e50;     /* Azul oscuro corporativo */
+  --color-secondary: #34495e;   /* Tono secundario */
+  --color-accent: #1abc9c;      /* Acento para llamados a la acción */
+
+  /* Colores neutros */
+  --color-dark: #1a202c;
+  --color-light: #f8f9fa;
+  --color-gray-100: #f7fafc;
+  --color-gray-200: #edf2f7;
+  --color-gray-300: #e2e8f0;
+  --color-gray-400: #cbd5e0;
+  --color-gray-500: #a0aec0;
+  --color-gray-600: #718096;
+  --color-gray-700: #4a5568;
+  --color-gray-800: #2d3748;
+  --color-gray-900: #1a202c;
+
+  /* Colores de feedback */
+  --color-success: #2ecc71;
+  --color-warning: #f39c12;
+  --color-danger: #e74c3c;
+  --color-info: #3498db;
+}
+
+/* Tipografía */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--color-gray-800);
+  background-color: var(--color-gray-100);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
 
 /* Animaciones */
 .fade-in {
@@ -17,13 +54,13 @@ html {
 
 /* Personalización de selección de texto */
 ::selection {
-  background-color: #3B82F6;
+  background-color: var(--color-primary);
   color: white;
 }
 
 /* Mejoras de accesibilidad para enlaces */
 a:focus {
-  outline: 2px solid #3B82F6;
+  outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
 
@@ -38,42 +75,145 @@ a:focus {
 /* Estilo para la imagen de perfil */
 .profile-image {
   filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+  border-radius: 4px;
 }
 
 /* Mejoras para las tarjetas de proyectos */
 .project-item {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 .project-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* Estilos para las barras de habilidades */
 .skill-bar {
   transition: width 1s ease-in-out;
+  height: 8px;
+  border-radius: 4px;
 }
 
 /* Estilo para botones y enlaces interactivos */
 .btn-primary {
+  background-color: var(--color-accent);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
   transition: all 0.3s ease;
+  border: none;
 }
 
 .btn-primary:hover {
+  background-color: #16a085;
   transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: white;
 }
 
 /* Estilos para el formulario de contacto */
-input:focus, textarea:focus {
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+input, textarea, select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--color-gray-300);
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.2);
+}
+
+/* Estilo para tarjetas y secciones */
+.card {
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
 }
 
 /* Estilo para el pie de página */
 .footer-link {
   transition: color 0.2s ease;
+  color: var(--color-gray-400);
 }
 
 .footer-link:hover {
-  color: #93C5FD;
+  color: var(--color-accent);
+}
+
+/* Nueva clase para secciones */
+.section {
+  padding: 6rem 0;
+}
+
+.section-title {
+  position: relative;
+  margin-bottom: 3rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.section-title:after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: var(--color-accent);
+  border-radius: 2px;
+}
+
+/* Estilos para la navegación */
+.nav-link {
+  position: relative;
+  font-weight: 500;
+}
+
+.nav-link:after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover:after, .nav-link.active:after {
+  width: 100%;
+}
+
+/* Efecto parallax para fondos */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
