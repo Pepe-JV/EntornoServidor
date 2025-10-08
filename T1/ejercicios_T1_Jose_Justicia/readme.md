@@ -1,256 +1,314 @@
-# 📚 Ejercicios T1 - José Justicia
+# 📚 Ejercicios T1 - Desarrollo Web con PHP
 
-## 📖 Descripción General
-Este repositorio contiene dos ejercicios prácticos de desarrollo web con PHP, implementando diferentes enfoques y tecnologías para demostrar competencias en desarrollo frontend y backend.
+## 👨‍💻 Información del Proyecto
+- **Desarrollador**: José Justicia Vico
+- **Asignatura**: Desarrollo de Aplicaciones Web - Entorno Servidor
+- **Tema**: T1 - Introducción a PHP
+- **Fecha**: Octubre 2024
 
 ---
 
-## 🚀 Ejercicio 1: Introducción a PHP
+## 📋 Descripción General
+Esta carpeta contiene 3 ejercicios progresivos de desarrollo web con PHP que muestran la evolución desde conceptos básicos hasta aplicaciones web más complejas y modernas.
 
-### 📋 Descripción
-Primer ejercicio básico de introducción a PHP con estructura HTML simple e integración de archivos modulares.
+---
+
+## 🎯 Ejercicio 1: Página PHP Básica
+
+### 📝 Descripción
+Introducción a PHP con una página personal simple que demuestra conceptos fundamentales como variables, concatenación y fecha/hora.
 
 ### 🛠️ Tecnologías Utilizadas
-- **HTML5**: Estructura semántica del documento
+- **PHP 8.0+**: Variables básicas y funciones de fecha
+- **HTML5**: Estructura semántica
 - **CSS3**: Estilos básicos personalizados
-- **JavaScript**: Funcionalidades interactivas básicas
-- **PHP**: Inclusión de archivos modulares
 
 ### 📁 Estructura del Proyecto
 ```
 ejercicio1/
-├── index.php                 # Página principal
+├── index.php          # Página principal con datos personales
 ├── assets/
-│   ├── css/
-│   │   └── style.css         # Estilos CSS personalizados
-│   └── js/
-│       └── main.js           # JavaScript básico
+│   └── css/
+│       └── style.css   # Estilos CSS básicos
 ├── config/
-│   └── config.php            # Configuración del proyecto
+│   └── config.php      # Configuración básica
 ├── includes/
-│   ├── header.php            # Header reutilizable
-│   └── footer.php            # Footer reutilizable
+│   ├── header.php      # Cabecera común
+│   └── footer.php      # Pie de página común
 └── pages/
-    ├── about.php             # Página "Acerca de"
-    ├── contact.php           # Página de contacto
-    └── services.php          # Página de servicios
+    ├── about.php       # Página acerca de
+    ├── contact.php     # Página de contacto
+    └── services.php    # Página de servicios
 ```
 
-### 🔧 Características Implementadas
-- ✅ Estructura HTML5 semántica
-- ✅ Inclusión de header mediante `<?php include 'includes/header.php'; ?>`
-- ✅ Separación de estilos y scripts
-- ✅ Organización modular de archivos
+### ✨ Características Implementadas
+- ✅ Variables PHP (nombre, edad, ciudad)
+- ✅ Función `date()` para mostrar fecha/hora actual
+- ✅ Estructura HTML semántica
+- ✅ CSS básico para presentación
+- ✅ Sistema de includes para reutilización de código
+
+### 🎨 Funcionalidades
+- **Datos dinámicos**: Información personal mostrada con PHP
+- **Fecha en tiempo real**: Actualización automática de fecha y hora
+- **Diseño responsivo básico**: Adaptación a diferentes pantallas
+- **Navegación simple**: Enlaces entre páginas
 
 ---
 
-## 🌟 Ejercicio 2: Sitio Web Completo con PHP Moderno
+## 🌟 Ejercicio 2: Sitio Web Moderno con Tailwind CSS
 
-### 📋 Descripción
-Desarrollo de un sitio web completo y moderno usando PHP con arquitectura modular, sistema de login, y diseño responsive con Tailwind CSS.
+### 📝 Descripción
+Desarrollo de un sitio web corporativo moderno utilizando Tailwind CSS y PHP avanzado con sistema de autenticación y diseño profesional.
 
 ### 🛠️ Tecnologías Utilizadas
-- **PHP 7.4+**: Lógica backend y manejo de sesiones
-- **HTML5**: Estructura semántica avanzada
-- **Tailwind CSS**: Framework CSS utilitario para diseño moderno
-- **JavaScript ES6+**: Interactividad avanzada y animaciones
-- **Material Symbols**: Iconografía moderna de Google
-- **Sessions PHP**: Sistema de autenticación básico
+- **PHP 8.0+**: Lógica de servidor avanzada
+- **HTML5**: Estructura semántica moderna
+- **Tailwind CSS**: Framework CSS utility-first
+- **JavaScript**: Interactividad y efectos dinámicos
+- **Material Icons**: Iconografía profesional
 
 ### 📁 Estructura del Proyecto
 ```
 ejercicio2/
-├── index.php                 # Página de inicio moderna
-├── login.php                 # Sistema de login con sesiones
+├── index.php          # Landing page principal
 ├── assets/
 │   ├── css/
-│   │   └── style.css         # Estilos CSS personalizados + Tailwind
+│   │   └── style.css   # Estilos personalizados + Tailwind
 │   └── js/
-│       └── main.js           # JavaScript avanzado con animaciones
+│       └── main.js     # JavaScript para interacciones
 ├── config/
-│   └── config.php            # Configuración centralizada del sitio
+│   └── config.php      # Configuración del sitio
 ├── includes/
-│   ├── header.php            # Header reutilizable (en /includes/)
-│   ├── footer.php            # Footer reutilizable 
-│   └── login.php             # Componente de login (no usado)
+│   └── header.php      # Header con navegación moderna
 └── pages/
-    ├── header.php            # Header con navegación Tailwind
-    ├── footer.php            # Footer simple
-    ├── about.php             # Página "Acerca de"
-    ├── contact.php           # Página de contacto con formulario
-    └── services.php          # Página de servicios
+    ├── footer.php      # Footer profesional
+    └── login.php       # Sistema de autenticación
 ```
 
-### 🔧 Sistema de Includes - Arquitectura Modular
-
-#### 📝 Configuración Centralizada (`config/config.php`)
-```php
-// Configuración general del sitio
-define('SITE_NAME', 'Mi Sitio Web');
-define('SITE_DESCRIPTION', 'Un sitio web de ejemplo con PHP');
-define('SITE_AUTHOR', 'José Justicia');
-
-// Configuración de páginas
-$pages = [
-    'inicio' => ['title' => 'Inicio', 'file' => 'index.php'],
-    'acerca' => ['title' => 'Acerca de', 'file' => 'pages/about.php'],
-    // ... más páginas
-];
-
-// Funciones globales
-function getPageTitle($current_page = 'inicio') { /* ... */ }
-function generateNavigation($current_page = 'inicio') { /* ... */ }
-```
-
-#### 🎯 Header Reutilizable (`includes/header.php`)
-```php
-<?php
-require_once __DIR__ . '/../config/config.php';
-$current_page = isset($page) ? $page : 'inicio';
-?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <title><?php echo getPageTitle($current_page); ?></title>
-    <!-- Metadatos dinámicos desde config -->
-</head>
-<body>
-    <header class="site-header">
-        <!-- Navegación generada dinámicamente -->
-        <?php echo generateNavigation($current_page); ?>
-    </header>
-    <main class="main-content">
-        <div class="container">
-```
-
-#### 👥 Uso en Páginas
-```php
-// En index.php
-<?php
-$page = 'inicio';
-include 'includes/header.php';
-?>
-<!-- Contenido específico de la página -->
-<?php include 'includes/footer.php'; ?>
-
-// En pages/about.php
-<?php
-$page = 'acerca';
-include '../includes/header.php';
-?>
-<!-- Contenido específico de la página -->
-<?php include '../includes/footer.php'; ?>
-```
-
-### 🎨 Características de Diseño
-- ✅ **Diseño Responsive**: Adaptativo a móviles, tablets y desktop
-- ✅ **Tailwind CSS**: Framework utilitario para estilos modernos
-- ✅ **Glassmorphism**: Efectos de cristal con `backdrop-blur`
-- ✅ **Gradientes**: Fondos degradados modernos
+### ✨ Características Implementadas
+- ✅ **Diseño moderno**: Gradientes, animaciones CSS y efectos visuales
+- ✅ **Responsive design**: Completamente adaptativo móvil-first
+- ✅ **Sistema de login**: Autenticación básica con PHP
+- ✅ **Tailwind CSS**: Diseño utility-first profesional
 - ✅ **Animaciones**: Transiciones suaves y efectos hover
-- ✅ **Material Icons**: Iconografía consistente
+- ✅ **Material Design**: Iconografía y componentes modernos
 
-### 🔐 Sistema de Autenticación
-- ✅ **Login/Logout**: Sistema básico con sesiones PHP
-- ✅ **Credenciales de prueba**: admin/admin123
-- ✅ **Redirección**: Enlace desde el icono de usuario en navegación
-- ✅ **Manejo de estados**: Verificación de sesiones activas
-
-### ⚡ Funcionalidades JavaScript
-- ✅ **Animaciones al scroll**: Intersection Observer API
-- ✅ **Validación de formularios**: Validación en tiempo real
-- ✅ **Navegación dinámica**: Resaltado de página activa
-- ✅ **Efectos visuales**: Hover effects y transiciones
-- ✅ **Botón "volver arriba"**: Scroll suave al top
-
-### 📱 Páginas Implementadas
-
-#### 🏠 Página de Inicio (`index.php`)
-- Hero section con call-to-action
-- Sección de características (4 tarjetas)
-- Tecnologías utilizadas (6 items)
-- Call-to-action final
-- Footer integrado
-
-#### 📞 Página de Contacto (`pages/contact.php`)
-- Formulario de contacto funcional
-- Validación PHP y JavaScript
-- Información de contacto
-- Manejo de envío de formularios
-
-#### 🛠️ Página de Servicios (`pages/services.php`)
-- Catálogo de servicios
-- Proceso de trabajo (6 pasos)
-- Tecnologías utilizadas
-- Precios y características
-
-#### ℹ️ Página Acerca de (`pages/about.php`)
-- Información de la empresa
-- Equipo de trabajo
-- Misión y visión
-- Tecnologías y herramientas
-
-### 🔄 Flujo de Includes
-
-1. **Configuración global** se carga desde `config/config.php`
-2. **Header dinámico** se incluye con `include 'includes/header.php'`
-3. **Navegación activa** se genera automáticamente según la página
-4. **Contenido específico** de cada página se renderiza
-5. **Footer consistente** se incluye con `include 'includes/footer.php'`
-
-### 🎯 Ventajas de la Arquitectura Modular
-
-#### ✅ Mantenibilidad
-- Cambios en header/footer se reflejan en todas las páginas
-- Configuración centralizada fácil de modificar
-- Código reutilizable y limpio
-
-#### ✅ Escalabilidad
-- Fácil agregar nuevas páginas al array de configuración
-- Sistema de navegación se actualiza automáticamente
-- Estructura preparada para futuras funcionalidades
-
-#### ✅ Consistencia
-- Mismo header/footer en todas las páginas
-- Navegación coherente y funcional
-- Estilos unificados con Tailwind CSS
+### 🎨 Funcionalidades
+- **Hero Section**: Sección principal con llamada a la acción
+- **Navegación sticky**: Barra de navegación fija moderna
+- **Gradientes dinámicos**: Fondos con gradientes animados
+- **Botones interactivos**: Efectos hover y transformaciones
+- **Login system**: Autenticación de usuarios básica
+- **Mobile responsive**: Diseño optimizado para móviles
 
 ---
 
-## 🚀 Cómo Ejecutar los Proyectos
+## 🚀 Ejercicio 3: Portfolio Profesional con Bootstrap
 
-### 📋 Requisitos
-- Servidor web local (XAMPP, WAMP, MAMP, etc.)
-- PHP 7.4 o superior
-- Navegador web moderno
+### 📝 Descripción
+Portfolio personal completo con navegación dinámica, múltiples secciones y diseño profesional utilizando Bootstrap 5 y PHP avanzado.
 
-### 🔧 Instalación
-1. Clona o descarga este repositorio
-2. Coloca los archivos en tu servidor web local
-3. Accede a `http://localhost/ejercicio1/` o `http://localhost/ejercicio2/`
-4. Para el ejercicio 2, puedes probar el login con: `admin/admin123`
+### 🛠️ Tecnologías Utilizadas
+- **PHP 8.0+**: Sistema de enrutamiento dinámico
+- **HTML5**: Estructura semántica avanzada
+- **Bootstrap 5**: Framework CSS responsive
+- **Bootstrap Icons**: Iconografía completa
+- **Google Fonts**: Tipografías modernas (Inter, Montserrat)
+- **JavaScript**: Interactividad avanzada
+
+### 📁 Estructura del Proyecto
+```
+ejercicio3/
+├── index.php          # Controlador principal con enrutamiento
+├── css/
+│   └── styles.css     # Estilos personalizados + Bootstrap
+├── js/
+│   └── main.js        # JavaScript para funcionalidades
+├── img/               # Recursos gráficos
+├── includes/
+│   ├── header.php     # Header con navegación dinámica
+│   └── footer.php     # Footer profesional
+└── pages/
+    ├── home.php       # Página de inicio
+    ├── about.php      # Sobre mí
+    ├── skills.php     # Habilidades técnicas
+    ├── portfolio.php  # Proyectos realizados
+    ├── contact.php    # Información de contacto
+    └── 404.php        # Página de error personalizada
+```
+
+### ✨ Características Implementadas
+- ✅ **Sistema de enrutamiento**: URLs amigables con parámetros GET
+- ✅ **Navegación dinámica**: Menú que resalta la sección activa
+- ✅ **Múltiples secciones**: Home, About, Skills, Portfolio, Contact
+- ✅ **Validación de páginas**: Control de acceso con páginas válidas
+- ✅ **Títulos dinámicos**: Meta títulos únicos por página
+- ✅ **Error 404**: Página de error personalizada
+- ✅ **Bootstrap 5**: Diseño completamente responsive
+- ✅ **Google Fonts**: Tipografías profesionales
+
+### 🎨 Funcionalidades
+- **Portfolio completo**: Secciones organizadas profesionalmente
+- **Skills showcase**: Presentación de habilidades técnicas
+- **Responsive grid**: Diseño adaptativo con Bootstrap Grid
+- **Navigation highlighting**: Navegación con estado activo
+- **Professional layout**: Diseño limpio y moderno
+- **Contact section**: Formulario de contacto funcional
 
 ---
 
-## 👨‍💻 Autor
-**José Justicia**
-- Ejercicios desarrollados para la asignatura de Manu
-- Fecha: Sep 2025
+## 📊 Comparación de Ejercicios
+
+| Característica | Ejercicio 1 | Ejercicio 2 | Ejercicio 3 |
+|----------------|-------------|-------------|-------------|
+| **Complejidad** | Básica | Intermedia | Avanzada |
+| **PHP Level** | Variables básicas | Includes + Auth | Enrutamiento |
+| **CSS Framework** | CSS3 Puro | Tailwind CSS | Bootstrap 5 |
+| **JavaScript** | Mínimo | Intermedio | Avanzado |
+| **Responsive** | Básico | Avanzado | Profesional |
+| **Navegación** | Enlaces simples | Header moderno | Dinámica |
+| **Autenticación** | ❌ | ✅ | ❌ |
+| **SEO** | Básico | Bueno | Excelente |
+| **Performance** | Alta | Media | Optimizada |
 
 ---
 
-## 📝 Notas Técnicas
+## 🎯 Objetivos de Aprendizaje Cumplidos
 
-### Ejercicio 1
-- Enfoque en aprender inclusión básica de archivos PHP
-- Estructura simple y clara para principiantes
+### 📚 Conceptos PHP
+- ✅ **Variables y tipos de datos**: Strings, enteros, arrays
+- ✅ **Funciones built-in**: `date()`, `isset()`, `in_array()`
+- ✅ **Control de flujo**: `if/else`, validaciones condicionales
+- ✅ **Includes**: Reutilización de código con `include`
+- ✅ **Superglobales**: Uso de `$_GET` para parámetros URL
+- ✅ **Arrays**: Manejo de arrays asociativos y validación
 
-### Ejercicio 2
-- Implementación de buenas prácticas de desarrollo web
-- Arquitectura modular escalable y mantenible
-- Diseño moderno con frameworks actuales
-- Sistema de autenticación básico pero funcional
+### 🎨 Desarrollo Frontend
+- ✅ **HTML5 semántico**: Estructura correcta y accesible
+- ✅ **CSS responsive**: Diseño adaptativo y mobile-first
+- ✅ **Frameworks CSS**: Tailwind CSS y Bootstrap 5
+- ✅ **JavaScript**: Interactividad y mejora progresiva
+- ✅ **Tipografías web**: Google Fonts y sistemas tipográficos
+- ✅ **Iconografía**: Material Icons y Bootstrap Icons
+
+### 🏗️ Arquitectura Web
+- ✅ **Separación de responsabilidades**: HTML, CSS, JS, PHP
+- ✅ **Organización de archivos**: Estructura de proyecto escalable
+- ✅ **Reutilización de código**: Includes y componentes
+- ✅ **Enrutamiento básico**: Sistema de navegación con PHP
+- ✅ **Validación de entrada**: Control de parámetros URL
+- ✅ **Manejo de errores**: Páginas 404 personalizadas
 
 ---
 
-*¡Gracias por revisar estos ejercicios!* 🎉
+## 🛠️ Instalación y Uso
+
+### 📋 Requisitos del Sistema
+- **PHP**: 7.4 o superior (recomendado 8.0+)
+- **Servidor Web**: Apache o Nginx
+- **Navegador**: Cualquier navegador moderno
+
+### 🚀 Instrucciones de Instalación
+
+1. **Clonar o descargar** el proyecto en tu servidor web local
+2. **Configurar el servidor** para que apunte a la carpeta del proyecto
+3. **Acceder a cada ejercicio** mediante:
+   - Ejercicio 1: `http://localhost/ejercicios_T1_Jose_Justicia/ejercicio1/`
+   - Ejercicio 2: `http://localhost/ejercicios_T1_Jose_Justicia/ejercicio2/`
+   - Ejercicio 3: `http://localhost/ejercicios_T1_Jose_Justicia/ejercicio3/`
+
+### 🔐 Credenciales de Prueba
+Para el **Ejercicio 2** (sistema de login):
+- **Usuario**: `admin`
+- **Contraseña**: `123456`
+
+---
+
+## 🎓 Evolución del Aprendizaje
+
+### 📈 Progresión de Complejidad
+
+#### **Nivel 1 - Ejercicio 1**: Fundamentos
+- Variables PHP básicas
+- Inclusión simple de archivos
+- CSS básico y estructura HTML
+- Conceptos introductorios de desarrollo web
+
+#### **Nivel 2 - Ejercicio 2**: Desarrollo Moderno  
+- Frameworks CSS modernos (Tailwind)
+- Sistema de autenticación básico
+- Diseño responsive avanzado
+- JavaScript para interactividad
+
+#### **Nivel 3 - Ejercicio 3**: Aplicación Completa
+- Sistema de enrutamiento con PHP
+- Arquitectura de aplicación organizada
+- Framework profesional (Bootstrap 5)
+- Manejo avanzado de estados y navegación
+
+---
+
+## 🚀 Próximos Pasos y Mejoras
+
+### 🔮 Funcionalidades Futuras
+- [ ] **Base de Datos**: Integración con MySQL para contenido dinámico
+- [ ] **API REST**: Endpoints para consumo de datos
+- [ ] **Autenticación avanzada**: Sistema completo con roles y permisos  
+- [ ] **Panel de administración**: CMS básico para gestión de contenido
+- [ ] **Optimización SEO**: Meta tags dinámicos y sitemap XML
+- [ ] **Performance**: Caché, optimización de imágenes y minificación
+
+### 🎯 Mejoras Técnicas
+- [ ] **Composer**: Gestión de dependencias PHP
+- [ ] **Namespace**: Organización avanzada del código PHP
+- [ ] **Webpack/Vite**: Bundling y optimización de assets
+- [ ] **SASS/SCSS**: Preprocesamiento CSS avanzado
+- [ ] **Testing**: Unit tests y integration tests
+- [ ] **Docker**: Containerización para desarrollo
+
+---
+
+## 📚 Recursos de Aprendizaje
+
+### 🔗 Enlaces Útiles
+- [PHP Official Documentation](https://www.php.net/docs.php)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Bootstrap 5 Documentation](https://getbootstrap.com/docs/5.3/)
+- [MDN Web Docs](https://developer.mozilla.org/es/)
+- [W3Schools PHP Tutorial](https://www.w3schools.com/php/)
+
+### 📖 Conceptos Clave Aplicados
+- **Separation of Concerns**: Separación de lógica, presentación y datos
+- **DRY Principle**: Don't Repeat Yourself - Reutilización de código
+- **Progressive Enhancement**: Mejora progresiva de funcionalidades
+- **Mobile First**: Diseño responsive desde dispositivos móviles
+- **Semantic HTML**: Código HTML semántico y accesible
+
+---
+
+## 🏆 Conclusiones
+
+Estos 3 ejercicios representan una progresión completa en el aprendizaje de **desarrollo web con PHP**, desde conceptos básicos hasta aplicaciones web modernas y funcionales.
+
+### ✅ Logros Alcanzados
+- **Dominio de PHP básico**: Variables, funciones, includes, enrutamiento
+- **Frameworks CSS modernos**: Tailwind CSS y Bootstrap 5
+- **Arquitectura web escalable**: Organización profesional de proyectos
+- **Diseño responsive**: Aplicaciones adaptativas y modernas
+- **Mejores prácticas**: Código limpio, semántico y mantenible
+
+### 🎯 Skills Desarrollados
+- **Backend**: PHP server-side programming
+- **Frontend**: HTML5, CSS3, JavaScript ES6+
+- **Frameworks**: Tailwind CSS, Bootstrap 5
+- **Tools**: Git, desarrollo local, debugging
+- **Design**: UI/UX, responsive design, typography
+
+---
+
+**📧 Contacto**: Jose Justicia Vico - [GitHub: @JoseJusticia](https://github.com/JoseJusticia)
+
+*🎉 ¡Gracias por revisar estos ejercicios de desarrollo web! Cada proyecto refleja un nivel diferente de expertise en desarrollo full-stack con PHP.*
+
+**🚀 ¿Listo para el siguiente nivel?** ¡Continuemos con aplicaciones más avanzadas!

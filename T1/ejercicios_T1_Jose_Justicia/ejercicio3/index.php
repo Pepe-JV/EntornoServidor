@@ -1,67 +1,68 @@
 <?php
-// Sistema de navegación dinámica
-$page = isset($_GET['page']) ? $_GET['page'] : 'experiencia';
+// Configuración de páginas válidas
+$valid_pages = ['home', 'about', 'skills', 'portfolio', 'contact'];
 
-// Páginas válidas
-$valid_pages = ['experiencia', 'proyectos', 'sobre-mi', 'contacto'];
+// Obtener la página solicitada y validarla
+$page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
-// Validar si la página existe
+// Validar que la página exista
 if (!in_array($page, $valid_pages)) {
-    $page = 'experiencia'; // Página por defecto
+    $page = '404';
 }
 
-// Función para determinar si la página está activa
-function isActive($current_page, $target_page) {
-    return $current_page === $target_page ? 'active' : '';
-}
+// Configurar títulos dinámicos para cada página
+$page_titles = [
+    'home' => 'Inicio - Portfolio Juan Desarrollador',
+    'about' => 'Sobre Mí - Portfolio Juan Desarrollador',
+    'skills' => 'Habilidades - Portfolio Juan Desarrollador',
+    'portfolio' => 'Proyectos - Portfolio Juan Desarrollador',
+    'contact' => 'Contacto - Portfolio Juan Desarrollador',
+    '404' => 'Página no encontrada - Portfolio Juan Desarrollador'
+];
+
+$title = $page_titles[$page];
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>José Justicia - Portfolio</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-<div class="container">
-    <!-- Navegación -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent mb-4">
-        <div class="container-fluid justify-content-center">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#experiencia">Experiencia</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#proyectos">Proyectos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#sobre-mi">Sobre mí</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contacto">Contacto</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <title><?php echo $title; ?></title>
 
-    <!-- Secciones en una sola página -->
-    <div id="experiencia" class="mb-5">
-        <?php include 'pages/experienci.php'; ?>
-    </div>
-    <div id="proyectos" class="mb-5">
-        <?php include 'pages/proyectos.php'; ?>
-    </div>
-    <div id="sobre-mi" class="mb-5">
-        <?php include 'pages/sobre-mi.php'; ?>
-    </div>
-    <div id="contacto" class="mb-5">
-        <?php include 'pages/contacto.php'; ?>
-    </div>
-</div>
-<!-- Bootstrap 5 JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-light">
+    <!-- Cabecera -->
+    <?php include 'includes/header.php'; ?>
+
+    <!-- Contenido principal -->
+    <main class="flex-grow-1">
+        <?php
+        // Incluir la página correspondiente
+        $page_file = "pages/{$page}.php";
+
+        if (file_exists($page_file)) {
+            include $page_file;
+        } else {
+            // Si por alguna razón el archivo no existe, mostrar 404
+            include 'pages/404.php';
+        }
+        ?>
+    </main>
+
+    <!-- Pie de página -->
+    <?php include 'includes/footer.php'; ?>
+
+    <!-- Bootstrap 5 JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript personalizado -->
+    <script src="js/main.js"></script>
 </body>
 </html>

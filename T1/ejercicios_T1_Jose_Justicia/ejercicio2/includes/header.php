@@ -1,3 +1,8 @@
+<?php
+// Detectar si estamos en la raíz o en una subcarpeta
+$current_dir = basename(dirname($_SERVER['PHP_SELF']));
+$base_path = ($current_dir === 'pages') ? '../' : './';
+?>
 
 <nav class="relative bg-gray-800/50 after:pointer-events-none after:absolute after:inset-x-0 after:bottom-0 after:h-px after:bg-white/10">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -22,10 +27,10 @@
                 <div class="hidden sm:ml-6 sm:block">
                     <div class="flex space-x-4">
                         <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-                        <a href="#" aria-current="page" class="rounded-md bg-gray-950/50 px-3 py-2 text-sm font-medium text-white">Panel de Control</a>
-                        <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Equipo</a>
-                        <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Proyectos</a>
-                        <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Calendario</a>
+                        <a href="<?php echo $base_path; ?>index.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Panel de Control</a>
+                        <a href="<?php echo $base_path; ?>pages/equipo.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Equipo</a>
+                        <a href="<?php echo $base_path; ?>pages/proyectos.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Proyectos</a>
+                        <a href="<?php echo $base_path; ?>pages/calendario.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Calendario</a>
                     </div>
                 </div>
             </div>
@@ -40,7 +45,7 @@
 
                 <!-- Profile link - redirects to login.php -->
                 <div class="relative ml-3">
-                    <a href="./pages/login.php" class="relative flex items-center justify-center rounded-full hover:opacity-80 transition-opacity focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                    <a href="<?php echo $base_path; ?>pages/login.php" class="relative flex items-center justify-center rounded-full hover:opacity-80 transition-opacity focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
                         <span class="absolute -inset-1.5"></span>
                         <span class="sr-only">Ir a Mi Cuenta</span>
                         <span class="material-symbols-outlined text-2xl text-blue-600 cursor-pointer hover:text-blue-400">account_circle</span>
@@ -53,10 +58,10 @@
     <el-disclosure id="mobile-menu" hidden class="block sm:hidden">
         <div class="space-y-1 px-2 pt-2 pb-3">
             <!-- Current: "bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
-            <a href="#" aria-current="page" class="block rounded-md bg-gray-950/50 px-3 py-2 text-base font-medium text-white">Dashboard</a>
-            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Team</a>
-            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Projects</a>
-            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Calendar</a>
+            <a href="<?php echo $base_path; ?>index.php" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Panel de Control</a>
+            <a href="<?php echo $base_path; ?>pages/equipo.php" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Equipo</a>
+            <a href="<?php echo $base_path; ?>pages/proyectos.php" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Proyectos</a>
+            <a href="<?php echo $base_path; ?>pages/calendario.php" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-white/5 hover:text-white">Calendario</a>
         </div>
     </el-disclosure>
 </nav>
