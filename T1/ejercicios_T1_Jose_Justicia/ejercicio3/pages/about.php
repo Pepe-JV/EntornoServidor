@@ -43,7 +43,7 @@
             <div class="col-lg-7">
                 <div class="ps-lg-4">
                     <h2 class="display-5 fw-bold mb-4 text-dark">
-                        Juan <span class="text-primary">Desarrollador</span>
+                        Pepe <span class="text-primary">Desarrollador</span>
                     </h2>
                     <p class="lead text-muted mb-4">
                         Full Stack Developer apasionado por crear experiencias digitales excepcionales

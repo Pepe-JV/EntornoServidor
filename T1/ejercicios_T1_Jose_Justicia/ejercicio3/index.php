@@ -12,12 +12,12 @@ if (!in_array($page, $valid_pages)) {
 
 // Configurar títulos dinámicos para cada página
 $page_titles = [
-    'home' => 'Inicio - Portfolio Juan Desarrollador',
-    'about' => 'Sobre Mí - Portfolio Juan Desarrollador',
-    'skills' => 'Habilidades - Portfolio Juan Desarrollador',
-    'portfolio' => 'Proyectos - Portfolio Juan Desarrollador',
-    'contact' => 'Contacto - Portfolio Juan Desarrollador',
-    '404' => 'Página no encontrada - Portfolio Juan Desarrollador'
+    'home' => 'Inicio - Portfolio pepe Desarrollador',
+    'about' => 'Sobre Mí - Portfolio pepe Desarrollador',
+    'skills' => 'Habilidades - Portfolio pepe Desarrollador',
+    'portfolio' => 'Proyectos - Portfolio pepe Desarrollador',
+    'contact' => 'Contacto - Portfolio pepe Desarrollador',
+    '404' => 'Página no encontrada - Portfolio pepe Desarrollador'
 ];
 
 $title = $page_titles[$page];
