@@ -12,9 +12,7 @@
  */
 
 echo "\n";
-echo "╔═══════════════════════════════════════════════════════════════╗\n";
-echo "║     EJERCICIO 1: Crear la BD de Tienda de Frutas            ║\n";
-echo "╚═══════════════════════════════════════════════════════════════╝\n";
+echo "EJERCICIO 1: Crear la BD de Tienda de Frutas\n";
 echo "\n";
 
 $host = 'db';
@@ -29,7 +27,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     echo "Conexión establecida\n\n";
-    echo "📋 Iniciando proceso de creación...\n\n";
+    echo "Iniciando proceso de creación...\n\n";
 
     // Crear la base de datos si no existe
     $pdo->exec("CREATE DATABASE IF NOT EXISTS tienda_frutas");
@@ -85,21 +83,18 @@ try {
     echo "tabla 'pedidos' creada (id, usuario_id, fecha, total)\n";
 
     // Verificar las tablas creadas
-    echo "\n📊 Tablas creadas en la base de datos:\n";
-    echo "─────────────────────────────────────\n";
+    echo "\nTablas creadas en la base de datos:\n";
+    echo "-------------------------------------------\n";
     $stmt = $pdo->query("SHOW TABLES");
     $tablas = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
     foreach ($tablas as $tabla) {
-        echo "  • $tabla\n";
+        echo "  > $tabla\n";
     }
 
     echo "\n";
-    echo "╔═══════════════════════════════════════════════════════════════╗\n";
-    echo "║  Base de datos 'tienda_frutas' creada exitosamente       ║\n";
-    echo "╚═══════════════════════════════════════════════════════════════╝\n";
+    echo "Base de datos 'tienda_frutas' creada exitosamente\n";
     echo "\n";
-    echo "➡️  Siguiente paso: php ejercicio2.php\n\n";
 
 } catch(PDOException $e) {
     echo "Error: " . $e->getMessage() . "\n";
