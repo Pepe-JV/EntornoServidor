@@ -4,16 +4,12 @@
  * Ejercicio 1: Crear la BD de Tienda de Frutas
  * Ejecutar desde terminal: php ejercicio1.php
  *
- * Crea una base de datos llamada "tienda_frutas" con las siguientes tablas:
- * - categorias (id, nombre, descripcion)
- * - productos (id, nombre, categoria_id, precio, stock)
- * - usuarios (id, usuario_id, fecha, total)
- * - pedidos (id, usuario_id, fecha, total)
  */
 
 echo "\n";
 echo "EJERCICIO 1: Crear la BD de Tienda de Frutas\n";
 echo "\n";
+
 
 $host = 'db';
 $username = 'alumno';
@@ -26,6 +22,7 @@ try {
     $pdo = new PDO("mysql:host=$host;charset=utf8mb4", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+
     echo "Conexión establecida\n\n";
     echo "Iniciando proceso de creación...\n\n";
 
@@ -35,6 +32,7 @@ try {
 
     // Usar la base de datos
     $pdo->exec("USE tienda_frutas");
+
 
     // Crear tabla categorias
     $pdo->exec("
@@ -92,6 +90,8 @@ try {
         echo "  > $tabla\n";
     }
 
+
+    
     echo "\n";
     echo "Base de datos 'tienda_frutas' creada exitosamente\n";
     echo "\n";

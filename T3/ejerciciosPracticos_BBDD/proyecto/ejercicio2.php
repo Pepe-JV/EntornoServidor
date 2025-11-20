@@ -1,18 +1,13 @@
-#!/usr/bin/env php
+
 <?php
 /**
  * Ejercicio 2: Insertar datos iniciales
  * Ejecutar desde terminal: php ejercicio2.php
  *
- * Inserta al menos 5 categorías (Cítricos, Frutas Rojas, Tropicales)
- * y 10 productos diferentes con sus precios y stock.
- * Usa INSERT múltiple para hacerlo más eficiente
  */
 
 echo "\n";
-echo "╔═══════════════════════════════════════════════════════════════╗\n";
-echo "║         EJERCICIO 2: Insertar datos iniciales               ║\n";
-echo "╚═══════════════════════════════════════════════════════════════╝\n";
+echo "EJERCICIO 2: Insertar datos iniciales\n";
 echo "\n";
 
 $host = 'db';
@@ -24,25 +19,23 @@ try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    echo "🔄 Conectado a la base de datos 'tienda_frutas'\n\n";
+    echo "Conectado a la base de datos 'tienda_frutas'\n\n";
 
     // Verificar si ya hay datos
     $count = $pdo->query("SELECT COUNT(*) FROM categorias")->fetchColumn();
 
     if ($count > 0) {
-        echo "⚠️  Los datos ya fueron insertados previamente\n";
-        echo "   Total de categorías existentes: $count\n\n";
+        echo "Los datos ya fueron insertados previamente\n";
+        echo "Total de categorías existentes: $count\n\n";
 
         $countProd = $pdo->query("SELECT COUNT(*) FROM productos")->fetchColumn();
-        echo "   Total de productos existentes: $countProd\n\n";
-
-        echo "💡 Consejo: Puedes eliminar los datos existentes ejecutando:\n";
-        echo "   docker exec -it ejerciciospracticos_bbdd-db-1 mysql -ualumno -palumno tienda_frutas -e \"DELETE FROM productos; DELETE FROM categorias;\"\n\n";
+        echo "Total de productos existentes: $countProd\n\n";
         exit(0);
     }
 
-    echo "📥 Insertando categorías...\n";
-    echo "─────────────────────────────────────\n";
+    echo "Insertando categorías...\n";
+
+
 
     // Insertar categorías usando INSERT múltiple
     $pdo->exec("
@@ -53,10 +46,9 @@ try {
         ('De Hueso', 'Frutas con semilla grande central'),
         ('De Pepita', 'Frutas con múltiples semillas pequeñas')
     ");
-    echo "✅ 5 categorías insertadas correctamente\n\n";
+    echo "5 categorías insertadas correctamente\n\n";
 
-    echo "🍎 Insertando productos...\n";
-    echo "─────────────────────────────────────\n";
+    echo "Insertando productos...\n";
 
     // Insertar productos usando INSERT múltiple
     $pdo->exec("
@@ -72,11 +64,11 @@ try {
         ('Ciruela', 4, 2.90, 110),
         ('Manzana', 5, 2.20, 180)
     ");
-    echo "✅ 10 productos insertados correctamente\n\n";
+    echo "10 productos insertados correctamente\n\n";
 
     // Mostrar datos insertados
-    echo "📊 CATEGORÍAS INSERTADAS:\n";
-    echo "══════════════════════════════════════════════════════════════\n";
+    echo "CATEGORÍAS INSERTADAS:\n";
+    echo "-------------------------------------------\n";
     printf("%-4s %-20s %-40s\n", "ID", "NOMBRE", "DESCRIPCIÓN");
     echo "──────────────────────────────────────────────────────────────\n";
 
@@ -85,8 +77,10 @@ try {
         printf("%-4d %-20s %-40s\n", $cat['id'], $cat['nombre'], substr($cat['descripcion'], 0, 37) . '...');
     }
 
-    echo "\n🍎 PRODUCTOS INSERTADOS:\n";
-    echo "══════════════════════════════════════════════════════════════\n";
+
+
+    echo "\nPRODUCTOS INSERTADOS:\n";
+    echo "-------------------------------------------\n";
     printf("%-4s %-20s %-20s %-10s %-10s\n", "ID", "NOMBRE", "CATEGORÍA", "PRECIO", "STOCK");
     echo "──────────────────────────────────────────────────────────────\n";
 
@@ -95,6 +89,7 @@ try {
         FROM productos p 
         JOIN categorias c ON p.categoria_id = c.id
         ORDER BY p.id
+
     ")->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($productos as $prod) {
@@ -107,15 +102,12 @@ try {
         );
     }
 
-    echo "\n";
-    echo "╔═══════════════════════════════════════════════════════════════╗\n";
-    echo "║  🎉 Datos insertados exitosamente                            ║\n";
-    echo "╚═══════════════════════════════════════════════════════════════╝\n";
-    echo "\n";
-    echo "➡️  Siguiente paso: php ejercicio3.php\n\n";
+
+
+    echo "\nDatos insertados correctamente\n\n";
 
 } catch(PDOException $e) {
-    echo "❌ Error: " . $e->getMessage() . "\n";
+    echo "Error: " . $e->getMessage() . "\n";
     exit(1);
 }
 
