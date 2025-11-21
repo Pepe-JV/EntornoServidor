@@ -1,4 +1,4 @@
-#!/usr/bin/env php
+
 <?php
 /**
  * Desafío Extra: Sistema completo
@@ -10,38 +10,60 @@ echo "\n";
 echo "DESAFÍO EXTRA: Sistema completo de tienda online\n";
 echo "\n";
 
+
+
 $host = 'db';
 $dbname = 'tienda_frutas';
 $username = 'alumno';
 $password = 'alumno';
 
+
+
 class TiendaOnline {
+
     private $pdo;
     
+
     public function __construct($pdo) {
+
         $this->pdo = $pdo;
     }
     
+
+
+
+
+
     // Gestión de productos (CRUD completo)
+
     public function crearProducto($nombre, $categoria_id, $precio, $stock) {
         try {
+
+
             $stmt = $this->pdo->prepare("
                 INSERT INTO productos (nombre, categoria_id, precio, stock) 
                 VALUES (?, ?, ?, ?)
             ");
+
+
             $stmt->execute([$nombre, $categoria_id, $precio, $stock]);
             return $this->pdo->lastInsertId();
+
+
         } catch (PDOException $e) {
             throw new Exception("Error al crear producto: " . $e->getMessage());
         }
     }
     
+
+
     public function obtenerProducto($id) {
         $stmt = $this->pdo->prepare("SELECT * FROM productos WHERE id = ?");
         $stmt->execute([$id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
     
+
     public function actualizarProducto($id, $nombre, $precio, $stock) {
         $stmt = $this->pdo->prepare("
             UPDATE productos 
@@ -51,37 +73,48 @@ class TiendaOnline {
         return $stmt->execute([$nombre, $precio, $stock, $id]);
     }
     
+
+
     public function eliminarProducto($id) {
         $stmt = $this->pdo->prepare("DELETE FROM productos WHERE id = ?");
         return $stmt->execute([$id]);
     }
     
+
     // Gestión de usuarios y autenticación
     public function crearUsuario($usuario_id) {
+
         $stmt = $this->pdo->prepare("
             INSERT INTO usuarios (usuario_id, total) 
             VALUES (?, 0)
         ");
+
         $stmt->execute([$usuario_id]);
         return $this->pdo->lastInsertId();
     }
     
     public function obtenerUsuario($usuario_id) {
+
         $stmt = $this->pdo->prepare("SELECT * FROM usuarios WHERE usuario_id = ?");
         $stmt->execute([$usuario_id]);
+
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
     
     // Carrito de compras con transacciones
     public function procesarCompra($usuario_id, $carrito) {
+
         try {
+
             $this->pdo->beginTransaction();
             
             // Verificar que el usuario existe
             $usuario = $this->obtenerUsuario($usuario_id);
+
             if (!$usuario) {
                 $id_usuario = $this->crearUsuario($usuario_id);
             } else {
+
                 $id_usuario = $usuario['id'];
             }
             
@@ -90,6 +123,8 @@ class TiendaOnline {
                 INSERT INTO pedidos (usuario_id, total) 
                 VALUES (?, 0)
             ");
+
+
             $stmt->execute([$id_usuario]);
             $pedido_id = $this->pdo->lastInsertId();
             
@@ -97,16 +132,19 @@ class TiendaOnline {
             
             // Procesar cada item del carrito
             foreach ($carrito as $item) {
+
                 $producto_id = $item['producto_id'];
                 $cantidad = $item['cantidad'];
                 
                 // Verificar stock
                 $producto = $this->obtenerProducto($producto_id);
                 if (!$producto) {
+
                     throw new Exception("Producto {$producto_id} no encontrado");
                 }
                 
                 if ($producto['stock'] < $cantidad) {
+                    
                     throw new Exception("Stock insuficiente para {$producto['nombre']}");
                 }
                 
