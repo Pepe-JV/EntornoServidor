@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ZenPaw_Tech_final/ZenPawTeh" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/proy_zenPaw_seminario/ZenPaw_Tech" vcs="Git" />
   </component>
 </project>
